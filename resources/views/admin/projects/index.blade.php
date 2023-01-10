@@ -2,6 +2,7 @@
 
 @section('content')
 <h1>Projects by NazOne</h1>
+@include('partials.message')
 <a href="{{route('admin.projects.create')}}" class="btn btn-primary position-fixed bottom-0 m-3" role="button">Add Project</a>
 <div class="table-responsive pt-5">
       <table class="table table-striped
