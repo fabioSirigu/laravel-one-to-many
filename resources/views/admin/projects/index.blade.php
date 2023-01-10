@@ -25,9 +25,9 @@
                         <td>{{$project->title}}</td>
                         <td>{{$project->date}}</td>
                         <td>
-                              <a href=""></a>
-                              <a href=""></a>
-                              <a href=""></a>
+                              <a href="{{route('admin.projects.show', $project->id)}}"><i class="fas fa-eye fa-md"></i></a>
+                              <a href="{{route('admin.projects.edit', $project->id)}}"><i class="fas fa-pencil fa-md"></i></a>
+                              <a href="{{route('admin.projects.show', $project->id)}}"><i class="fas fa-trash fa-md"></i></a>
                         </td>
                   </tr>
                   @empty

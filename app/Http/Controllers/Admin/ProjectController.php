@@ -39,7 +39,12 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $val_data = $request->validated();
+        //dd($val_data);
+        // Save all data
+        Project::create($val_data);
+        // redirect to a get route
+        return to_route('admin.projects.index')->with('message', "Project added successfully");
     }
 
     /**
@@ -50,7 +55,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
