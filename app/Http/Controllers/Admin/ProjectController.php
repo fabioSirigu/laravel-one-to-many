@@ -40,11 +40,16 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $val_data = $request->validated();
+
+        $slug_data = Project::createSlug($val_data['title']);
+        $val_data['slug'] =  $slug_data;
+        $project = Project::create($val_data);
+
         //dd($val_data);
         // Save all data
-        Project::create($val_data);
+        // Project::create($val_data);
         // redirect to a get route
-        return to_route('admin.projects.index')->with('message', "Project added successfully");
+        return to_route('admin.projects.index')->with('message', "$project added successfully");
     }
 
     /**
@@ -79,11 +84,13 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $val_data = $request->validated();
-
-        $project->update($val_data);
+        $slug_data = Project::createSlug($val_data['title']);
+        $val_data['slug'] =  $slug_data;
+        $project = Project::create($val_data);
+        //$project->update($val_data);
 
         // return redirect()->route('admin.projects.index');
-        return to_route('admin.projects.index')->with('message', "update successfully");
+        return to_route('admin.projects.index')->with('message', "$project update successfully");
     }
 
     /**

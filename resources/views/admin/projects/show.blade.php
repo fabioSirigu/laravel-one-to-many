@@ -2,13 +2,16 @@
 @section('content')
 <a class="btn btn-primary" href="{{route('admin.projects.index')}}" role="button"><i class="fas fa-angle-left fa-fw"></i></a>
 <div class="container p-5">
-      <div class="card text-left">
+      <div class="card text-left bg-dark text-light">
             <div class="card-body">
                   <div class="id_project">
                         <h3>Project id: {{$project->id}}</h3>
                   </div>
                   <div>
                         <h1>Title: {{$project->title}}</h1>
+                  </div>
+                  <div>
+                        <h1>Slug: {{$project->slug}}</h1>
                   </div>
                   <div>
                         <h3>Description: {{$project->description}}</h3>

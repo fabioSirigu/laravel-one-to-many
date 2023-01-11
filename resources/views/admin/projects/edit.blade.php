@@ -4,7 +4,7 @@
 
 <h1>Edit a Project!</h1>
 @include('partials.errors')
-<form action="{{route('admin.projects.update', $project->id)}}" method="post">
+<form action="{{route('admin.projects.update', $project->slug)}}" method="post">
       @csrf
       @method('PUT')
       <div class="form-group">
