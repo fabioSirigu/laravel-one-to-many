@@ -4,13 +4,21 @@
 
 <h1>Edit a Project!</h1>
 @include('partials.errors')
-<form action="{{route('admin.projects.update', $project->slug)}}" method="post">
+<form action="{{route('admin.projects.update', $project->slug)}}" method="post" enctype="multipart/form-data">
       @csrf
       @method('PUT')
       <div class="form-group">
             <label for="title">Title</label>
             <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Add title.." aria-describedby="titleHelper" value="{{old('title', $project->title)}}">>
             <small id="titleHelper" class="text-muted">Add a new Title</small>
+      </div>
+      <div class="mb-3 d-flex gap-4">
+            <img width="100" class="bg-dark" src="{{ asset('storage/' . $project->cover_image)}}" alt="">
+            <div>
+                  <label for="cover_image" class="form-label">Replace Cover Image</label>
+                  <input type="file" name="cover_image" id="cover_image" class="form-control  @error('cover_image') is-invalid @enderror" placeholder="" aria-describedby="coverImageHelper">
+                  <small id="coverImageHelper" class="text-muted">Replace the post cover image</small>
+            </div>
       </div>
       <div class="mb-3">
             <label for="description" class="form-label">Description</label>

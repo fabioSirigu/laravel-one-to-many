@@ -14,6 +14,7 @@
 
                   <tr>
                         <th>ID</th>
+                        <th>Image</th>
                         <th>Title</th>
                         <th>Slug</th>
                         <th>Date Create</th>
@@ -24,6 +25,15 @@
                   @forelse ($projects as $project)
                   <tr class="table-primary">
                         <td scope="row">{{$project->id}}</td>
+                        <td>
+
+                              @if($project->cover_image)
+                              <img width="100" class="img-fluid" src="{{asset('storage/' . $project->cover_image)}}" alt="">
+                              @else
+                              <div class="placeholder p-5 bg-secondary d-flex align-items-center justify-content-center" style="width:100px">Placeholder</div>
+                              @endif
+
+                        </td>
                         <td>{{$project->title}}</td>
                         <td>{{$project->slug}}</td>
                         <td>{{$project->date}}</td>
