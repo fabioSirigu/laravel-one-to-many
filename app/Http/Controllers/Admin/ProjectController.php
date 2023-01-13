@@ -54,7 +54,7 @@ class ProjectController extends Controller
         // Save all data
         // Project::create($val_data);
         // redirect to a get route
-        return to_route('admin.projects.index')->with('message', "$project->title added successfully");
+        return to_route('admin.projects.index')->with('message', "The project: $project->title added successfully");
     }
 
     /**
@@ -103,7 +103,7 @@ class ProjectController extends Controller
         $project->update($val_data);
 
         // return redirect()->route('admin.projects.index');
-        return to_route('admin.projects.index')->with('message', "$project->title update successfully");
+        return to_route('admin.projects.index')->with('message', "The project: $project->title update successfully");
     }
 
     /**
