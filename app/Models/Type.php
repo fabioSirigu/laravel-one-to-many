@@ -10,7 +10,7 @@ class Type extends Model
 {
     use HasFactory;
     /**
-     * Get all of the projects for the Category
+     * Get all of the projects for the Type
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

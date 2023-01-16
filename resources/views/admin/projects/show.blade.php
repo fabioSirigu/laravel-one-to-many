@@ -19,6 +19,10 @@
                   <div>
                         <h1>Slug: {{$project->slug}}</h1>
                   </div>
+                  <div class="type">
+                        <strong>Type:</strong>
+                        {{ $project->type ? $project->type->name : ' No type match'}}
+                  </div>
                   <div>
                         <h3>Description: {{$project->description}}</h3>
                   </div>
