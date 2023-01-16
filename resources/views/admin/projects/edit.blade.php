@@ -17,8 +17,23 @@
             <div>
                   <label for="cover_image" class="form-label">Replace Cover Image</label>
                   <input type="file" name="cover_image" id="cover_image" class="form-control  @error('cover_image') is-invalid @enderror" placeholder="" aria-describedby="coverImageHelper">
-                  <small id="coverImageHelper" class="text-muted">Replace the post cover image</small>
+                  <small id="coverImageHelper" class="text-muted">Replace the project cover image</small>
             </div>
+      </div>
+      <div class="mb-3">
+            <label for="type_id" class="form-label">Types</label>
+            <select class="form-select form-select-lg @error('type_id') 'is-invalid' @enderror" name="type_id" id="type_id">
+                  <option value="">Uncategorize</option>
+
+                  @forelse ($types as $type )
+                  <option value="{{$type->id}}" {{ $type->id == old('type_id',  $project->type ? $project->type->id : '') ? 'selected' : '' }}>
+                        {{$type->name}}
+                  </option>
+                  @empty
+                  <option value="">Sorry, no types in the system.</option>
+                  @endforelse
+
+            </select>
       </div>
       <div class="mb-3">
             <label for="description" class="form-label">Description</label>
