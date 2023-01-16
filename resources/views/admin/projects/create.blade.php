@@ -23,7 +23,7 @@
 
                   @foreach ($types as $type )
                   <!-- TODO fix old value -->
-                  <option value="{{$type->id}}" {{ old('type_id') ? 'selected' : '' }}>{{$type->name}}</option>
+                  <option value="{{$type->id}}" {{ $type->id == old('type_id',  $project->type ? $project->type->id : '') ? 'selected' : '' }}>{{$type->name}}</option>
                   @endforeach
 
             </select>
